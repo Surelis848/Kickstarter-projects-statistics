@@ -1,44 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kickstarter projects</title>
+
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.css" type="text/css" />
-    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/main.css" type="text/css" />
+
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.min.js"></script>
-    <script type="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/queue-async/1.0.7/queue.min.js"></script>
     <script type="text/javascript" src="assets/js/statistics.js"></script>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kickstarter projects</title>
+
 </head>
+
 <body>
-    <header>
-        
-    </header>
+    <nav class='nav navbar navbar-dark bg-primary'>
+        <div class="container-fluid">
+            <a class="logo" href="index.html">Kickstarter projects</a>
+        </div>
+    </nav>
     <section>
         <h1>Kickstarter projects</h1>
-        <p>Kickstarter is an American public-benefit corporation based in Brooklyn, New York, that maintains a global crowdfunding platform focused on creativity and merchandising. The company's stated mission is to "help bring creative projects to life". Kickstarter has reportedly received more than $4 billion in pledges from 15.5 million backers to fund 257,000 creative projects, such as films, music, stage shows, comics, journalism, video games, technology and food-related projects.
-People who back Kickstarter projects are offered tangible rewards or experiences in exchange for their pledges. This model traces its roots to subscription model of arts patronage, where artists would go directly to their audiences to fund their work.</p>
-        <h2>Category of Kickstarter projects</h2>
+        <p>Kickstarter is an American public-benefit corporation based in Brooklyn, New York, that maintains a global crowdfunding platform focused on creativity and merchandising. The company's stated mission is to "help bring creative projects to life".
+            Kickstarter has reportedly received more than $4 billion in pledges from 15.5 million backers to fund 257,000 creative projects, such as films, music, stage shows, comics, journalism, video games, technology and food-related projects. People
+            who back Kickstarter projects are offered tangible rewards or experiences in exchange for their pledges. This model traces its roots to subscription model of arts patronage, where artists would go directly to their audiences to fund their
+            work.
+        </p>
+        <h2 id='category'>Categories of Kickstarter projects</h2>
         <div id='category_chart'></div>
-        <div id='main_category_chart'></div>
-        <h2>Country of issue</h2>
+        <p><strong>Categories of projects</strong><br>There are 15 main categories of projects on Kickstarter as presented in this chart. The most active category is Games and the least active one is Dance.</p>
+        <h2 id='country'>Country of issue</h2>
         <div id='country_chart'></div>
+        <p><strong>Country of issue</strong><br>Over 20 different countries presented projects to Kickstarter in 2017. The most active countries were United States of America and Great Britain. The least active ones were Belgium and Norway.</p>
         <div id='currency_chart'></div>
-        <h2>Time Frame</h2>
-        <div id='deadline_chart'></div>
+        <p><strong>Currency used</strong><br>Most of the projects were accomplished while using US dollars. However, quite a few countries also used GB pounds and Euro. The least used currencies were Norwegian and Denmark Krona.</p>
+        <h2 id='date'>Time Frame</h2>
         <div id='periods_chart'></div>
-        <h2>Goals</h2>
+        <p><strong>Deadline</strong><br>Total count, most popular periods. Average duration of project between launch and deadline. Most popular durations
+</p>
+        <h2 id='goals'>Goals</h2>
         <div id='goals_pledged_chart'></div>
-        <h2>State</h2>
+        <p><strong>Goals versus pledged amount</strong><br></p>
+        <h2 id='state'>State</h2>
         <div id='state_chart'></div>
+        <p><strong>State of the projects</strong><br>More than 50% of all submitted projects failed with another 15% which were canceled or suspended. So, only around 35% of all submitted projects durring 2017 were succesful.</p>
         <div id='backers_chart'></div>
-        
+        <p><strong>Amount of backers</strong><br>About 50% of project got none to 10 backers, and less than 5% of project got more than a thousand of backers. The most backers of all times- 2490 was received by a project on (something) by (someone).</p>
+
     </section>
-    <footer>
-        
+    <footer class='footer container-fluid bg-primary'>
+        <p>&#9400; Made by Elena Eigelyte, 2019</p>
     </footer>
 </body>
+
 </html>
