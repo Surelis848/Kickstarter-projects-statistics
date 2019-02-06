@@ -4,11 +4,17 @@ queue()
 
 function makeCharts(error, projectData) {
     var ndx = crossfilter(projectData);
+    var parseDate = d3.time.format("%d/%m/%Y").parse;
+    
+        projectData.forEach(function(d){
+            d.launched = parseDate(d.launched);
+            d.goal = parseInt(d['goal'])
+        });
 
     show_categories(ndx);
     show_country(ndx);
     show_currency(ndx);
-    show_goal(ndx);
+    show_goal_pledged(ndx);
     show_state(ndx);
     show_backers(ndx);
 
@@ -82,11 +88,12 @@ function show_currency(ndx) {
 */
 
 /*------------------------------Goals--------------------------*/
-function show_goal(ndx) {
+function show_goal_pledged(ndx) {
+    
     var date_dim = ndx.dimension(dc.pluck('launched'));
 
-    var min_date = date_dim.bottom(1)[0].date;
-    var max_date = date_dim.top(1)[0].date;
+    var min_date = date_dim.bottom(1)[0].launched;
+    var max_date = date_dim.top(1)[0].launched;
 
 
     var goalDim = ndx.dimension(function(d) {
