@@ -5,16 +5,17 @@ queue()
 function makeCharts(error, projectData) {
     var ndx = crossfilter(projectData);
     var parseDate = d3.time.format("%d/%m/%Y").parse;
-    
-        projectData.forEach(function(d){
-            d.launched = parseDate(d.launched);
-            d.goal = parseInt(d['goal'])
-        });
+
+    projectData.forEach(function(d) {
+        d.launched = parseDate(d.launched);
+        d.goal = parseInt(d['goal']);
+        d.pledged = parseInt(d['pledged']);
+    });
 
     show_categories(ndx);
     show_country(ndx);
     show_currency(ndx);
-    show_goal_pledged(ndx);
+    ///show_goal_pledged(ndx);
     show_state(ndx);
     show_backers(ndx);
 
@@ -28,9 +29,8 @@ function show_categories(ndx) {
     var categoryGroup = categoryDim.group();
 
     dc.barChart('#category_chart')
-        .width(1100)
+        .width(1000)
         .height(400)
-        .margins({ top: 30, right: 30, bottom: 50, left: 80 })
         .dimension(categoryDim)
         .group(categoryGroup)
         .transitionDuration(500)
@@ -88,31 +88,28 @@ function show_currency(ndx) {
 */
 
 /*------------------------------Goals--------------------------*/
-function show_goal_pledged(ndx) {
-    
-    var date_dim = ndx.dimension(dc.pluck('launched'));
 
-    var min_date = date_dim.bottom(1)[0].launched;
-    var max_date = date_dim.top(1)[0].launched;
+/*function show_goal_pledged(ndx) {
+    var dateDim = ndx.dimension(dc.pluck('launched'));
+    var minDate = dateDim.bottom(1)[0].launched;
+    var maxDate = dateDim.top(1)[0].launched;
 
+    function numbers_by_type(type) {
+        return function(d) {
+            if (d.type === name) {
+                return +d.spend;
+            }
+            else {
+                return 0;
+            }
+        }
+    }
+    var  = date_dim.group().reduceSum(spend_by_name('Tom'));
+    var bobSpendByMonth = date_dim.group().reduceSum(spend_by_name('Bob'));
 
-    var goalDim = ndx.dimension(function(d) {
-        return [d.lauched, d.goal];
-    });
-    
-    var goalGroup = goalDim.group();
-    
-    dc.scatterPlot('#goals_pledged_chart')
-        .width(768)
-        .height(620)
-        .x(d3.time.scale().domain([min_date, max_date]))
-        .brushOn(false)
-        .symbolSize(8)
-        .clipPadding(10)
-        .yAxisLabel('Goals')
-        .dimension(goalDim)
-        .group(goalGroup);
-}
+    var aliceSpendByMonth = date_dim.group().reduceSum(spend_by_name('Alice'));
+
+}*/
 
 /*------------------------------State--------------------------*/
 
