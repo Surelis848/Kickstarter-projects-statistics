@@ -10,6 +10,7 @@ function makeCharts(error, projectData) {
         d.launched = parseDate(d.launched);
         d.goal = parseInt(d['goal']);
         d.pledged = parseInt(d['pledged']);
+        d.backers = parseInt(d['backers']);
     });
 
     show_categories(ndx);
@@ -28,16 +29,14 @@ function show_categories(ndx) {
     var categoryDim = ndx.dimension(dc.pluck('main_category'));
     var categoryGroup = categoryDim.group();
 
-    dc.barChart('#category_chart')
-        .width(1000)
-        .height(400)
+    dc.rowChart('#category_chart')
+        .width(992)
+        .height(500)
         .dimension(categoryDim)
         .group(categoryGroup)
         .transitionDuration(500)
-        .x(d3.scale.ordinal())
-        .xUnits(dc.units.ordinal)
-        .elasticY(true)
-        .yAxis().ticks(10);
+        .elasticX(true)
+        .controlsUseVisibility(true);
 }
 
 /*------------------------------Country--------------------------*/
@@ -52,7 +51,7 @@ function show_country(ndx) {
         .transitionDuration(500)
         .dimension(countryDim)
         .group(countryGroup)
-
+        .legend(dc.legend().x(220).y(20).itemHeight(15).gap(5));
 }
 
 function show_currency(ndx) {
@@ -65,28 +64,13 @@ function show_currency(ndx) {
         .transitionDuration(500)
         .dimension(currencyDim)
         .group(currencyGroup)
-
+        .legend(dc.legend().x(220).y(20).itemHeight(15).gap(5));
 }
 
 /*------------------------------Time Frame--------------------------*/
-
-/*function show_date(ndx) {
-    var dateDim = ndx.dimension(dc.pluck('launched'));
-    var dateGroup = dateDim.group();
-    
-    dc.barChart('#launched_chart')
-        .width(1200)
-        .height(400)
-        .margins({top: 30, right: 30, bottom: 50, left: 80})
-        .dimension(dateDim)
-        .group(dateGroup)
-        .transitionDuration(500)
-        .x(d3.scale.ordinal())
-        .xUnits(dc.units.ordinal)
-        .elasticY(true);
-}
-*/
-
+/*function show_periods(ndx) {
+    var periodsDim = 
+}*/
 /*------------------------------Goals--------------------------*/
 
 /*function show_goal_pledged(ndx) {
@@ -123,11 +107,27 @@ function show_state(ndx) {
         .transitionDuration(500)
         .dimension(stateDim)
         .group(stateGroup)
-
+        .legend(dc.legend().x(220).y(20).itemHeight(15).gap(5));
 }
 
 function show_backers(ndx) {
-    var backersDim = ndx.dimension(dc.pluck('backers'));
+    var backersDim = ndx.dimension(function (d) {
+            if (d.backers < 11)
+                return '0-10';
+            else if (d.backers < 51)
+                return '11-50';
+            else if (d.backers < 101)
+                return '51-100';
+            else if (d.backers < 201)
+                return '101-200';
+            else if (d.backers < 501)
+                return '201-500';
+            else if (d.backers < 1001)
+                return '501-1000';
+            else
+                return '1001-'
+        });
+
     var backersGroup = backersDim.group();
 
     dc.pieChart('#backers_chart')
@@ -136,5 +136,5 @@ function show_backers(ndx) {
         .transitionDuration(500)
         .dimension(backersDim)
         .group(backersGroup)
-
+        .legend(dc.legend().x(220).y(20).itemHeight(15).gap(5));
 }
