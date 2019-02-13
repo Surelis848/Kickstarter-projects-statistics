@@ -16,7 +16,7 @@ function makeCharts(error, projectData) {
     show_categories(ndx);
     show_country(ndx);
     show_currency(ndx);
-    ///show_goal_pledged(ndx);
+    show_goal_pledged(ndx);
     show_state(ndx);
     show_backers(ndx);
 
@@ -30,7 +30,7 @@ function show_categories(ndx) {
     var categoryGroup = categoryDim.group();
 
     dc.rowChart('#category_chart')
-        .width(992)
+        .width(768)
         .height(500)
         .dimension(categoryDim)
         .group(categoryGroup)
@@ -67,33 +67,29 @@ function show_currency(ndx) {
         .legend(dc.legend().x(220).y(20).itemHeight(15).gap(5));
 }
 
-/*------------------------------Time Frame--------------------------*/
-/*function show_periods(ndx) {
-    var periodsDim = 
-}*/
 /*------------------------------Goals--------------------------*/
 
-/*function show_goal_pledged(ndx) {
+function show_goal_pledged(ndx) {
     var dateDim = ndx.dimension(dc.pluck('launched'));
     var minDate = dateDim.bottom(1)[0].launched;
     var maxDate = dateDim.top(1)[0].launched;
 
-    function numbers_by_type(type) {
-        return function(d) {
-            if (d.type === name) {
-                return +d.spend;
-            }
-            else {
-                return 0;
-            }
-        }
-    }
-    var  = date_dim.group().reduceSum(spend_by_name('Tom'));
-    var bobSpendByMonth = date_dim.group().reduceSum(spend_by_name('Bob'));
+    var goalsByMonth = dateDim.group().reduceSum(dc.pluck('goal'));
+    var pledgesByMonth = dateDim.group().reduceSum(dc.pluck('pledged'));
 
-    var aliceSpendByMonth = date_dim.group().reduceSum(spend_by_name('Alice'));
-
-}*/
+    dc.lineChart('#goals_pledged_chart')
+        .width(900)
+        .height(500)
+        .margins({ top: 20, right: 40, bottom: 30, left: 80 })
+        .dimension(dateDim)
+        .legend(dc.legend().x(90).y(20).itemHeight(13).gap(5))
+        .group(goalsByMonth)
+        .stack(pledgesByMonth)
+        .transitionDuration(500)
+        .x(d3.time.scale().domain([minDate, maxDate]))
+        .xAxisLabel("Month")
+        .yAxis().ticks(8);
+}
 
 /*------------------------------State--------------------------*/
 
@@ -111,22 +107,22 @@ function show_state(ndx) {
 }
 
 function show_backers(ndx) {
-    var backersDim = ndx.dimension(function (d) {
-            if (d.backers < 11)
-                return '0-10';
-            else if (d.backers < 51)
-                return '11-50';
-            else if (d.backers < 101)
-                return '51-100';
-            else if (d.backers < 201)
-                return '101-200';
-            else if (d.backers < 501)
-                return '201-500';
-            else if (d.backers < 1001)
-                return '501-1000';
-            else
-                return '1001-'
-        });
+   var backersDim = ndx.dimension(function(d) {
+        if (d.backers < 11)
+            return '0-10';
+        else if (d.backers < 51)
+            return '11-50';
+        else if (d.backers < 101)
+            return '51-100';
+        else if (d.backers < 201)
+            return '101-200';
+        else if (d.backers < 501)
+            return '201-500';
+        else if (d.backers < 1001)
+            return '501-1000';
+        else
+            return '1001-2490';
+    });
 
     var backersGroup = backersDim.group();
 
