@@ -24,61 +24,92 @@
     <nav class='nav navbar navbar-dark bg-primary'>
         <div class="container-fluid">
             <a class="logo" href="index.html">Kickstarter projects</a>
+            <a href='javascript:dc.filterAll(); dc.renderAll()'>
+                <button class='btn btn-success'>Reset All</button>
+            </a>
         </div>
     </nav>
     <section>
-        <div class="card border-secondary mb-3">
-            <h1 class="card-header">Kickstarter projects</h1>
-            <div class="card-body">
-                <p class="card-text">Kickstarter is an American public-benefit corporation based in Brooklyn, New York, that maintains a global crowdfunding platform focused on creativity and merchandising. The company's stated mission is to "help bring creative projects
-                    to life". Kickstarter has reportedly received more than $4 billion in pledges from 15.5 million backers to fund 257,000 creative projects, such as films, music, stage shows, comics, journalism, video games, technology and food-related
-                    projects. People who back Kickstarter projects are offered tangible rewards or experiences in exchange for their pledges. This model traces its roots to subscription model of arts patronage, where artists would go directly to their
-                    audiences to fund their work.<br> This is the data of projects launched in 2017: their categories, goals, number of backers, reached state and etc.
-                </p>
+        <div class='container-fluid'>
+            <div class='row'>
+                <div class="card border-secondary mb-3">
+                    <h1 class="card-header">Kickstarter projects</h1>
+                    <div class="card-body">
+                        <p class="card-text">Kickstarter is an American public-benefit corporation based in Brooklyn, New York, that maintains a global crowdfunding platform focused on creativity and merchandising. The company's stated mission is to "help bring creative projects
+                            to life". Kickstarter has reportedly received more than $4 billion in pledges from 15.5 million backers to fund 257,000 creative projects, such as films, music, stage shows, comics, journalism, video games, technology and food-related
+                            projects. People who back Kickstarter projects are offered tangible rewards or experiences in exchange for their pledges. This model traces its roots to subscription model of arts patronage, where artists would go directly
+                            to their audiences to fund their work.<br> This is the data of projects launched in 2017: their categories, goals, number of backers, reached state and etc.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
-    <section>
-        <div class="card border-secondary mb-3">
-            <h2 class="card-header" id='category'>Categories</h2>
-            <div id='category_chart'></div>
-            <div class="card-body">
-                <p class="card-text"><strong>Categories of projects</strong><br>There are 15 main categories of projects on Kickstarter as presented in this chart. The most active category is 'Games' and the least active one is 'Dance'.</p>
+        <div class='container-fluid'>
+            <div class='row'>
+                <div class="card border-secondary mb-3">
+                    <h2 class="card-header" id='category'>Categories</h2>
+                    <div id='category_chart'></div>
+                    <div class="card-body">
+                        <p class="card-text"><strong>Categories of projects</strong><br>There are 15 main categories of projects on Kickstarter as presented in this chart. The most active category is 'Games' and the least active one is 'Dance'.</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
-    <section>
-        <div class="card border-secondary mb-3">
-            <h2 class="card-header" id='country'>Country of issue</h2>
-            <div id='country_chart'></div>
-            <div class="card-body">
-                <p class="card-text"><strong>Country of issue</strong><br>Over 20 different countries presented projects to Kickstarter in 2017. The most active countries were United States of America and Great Britain. The least active ones were Belgium and Norway.</p>
-            </div>
-            <div id='currency_chart'></div>
-            <div class="card-body">
-                <p class="card-text"><strong>Currency used</strong><br>Most of the projects were accomplished while using US dollars. However, quite a few countries also used GB pounds and Euro. The least used currencies were Norwegian and Denmark Krona.</p>
+        <div class='container-fluid'>
+            <div class='row'>
+                <div class="col-xs-12 col-sm-12 col-md-6">
+                    <div class="card border-secondary mb-3">
+                        <h2 class="card-header" id='country'>Country of issue</h2>
+                        <div id='country_chart'></div>
+                        <div class="card-body">
+                            <p class="card-text"><strong>Country of issue</strong><br>Over 20 different countries presented projects to Kickstarter in 2017. The most active countries were United States of America and Great Britain. The least active ones were Belgium and Norway.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6">
+                    <div class="card border-secondary mb-3">
+                        <h2 class="card-header" id='currency'>Currency used</h2>
+                        <div id='currency_chart'></div>
+                        <div class="card-body">
+                            <p class="card-text"><strong>Currency used</strong><br>Most of the projects were accomplished while using US dollars. However, quite a few countries also used GB pounds and Euro. The least used currencies were Norwegian and Denmark Krona.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
-    <section>
-        <div class="card border-secondary mb-3">
-            <h2 class="card-header" id='goals'>Goals</h2>
-            <div id='goals_pledged_chart'></div>
-            <div class="card-body">
-                <p class="card-text"><strong>Goals versus pledged amount</strong><br>There is very little corelation between goals of the projects and the pledged amount of backers. We can conclude that usually, you will get what you ask for.</p>
+        <div class='container-fluid'>
+            <div class='row'>
+                <div class="card border-secondary mb-3">
+                    <h2 class="card-header" id='goals'>Goals</h2>
+                    <div id='goals_pledged_chart'></div>
+                    <div class="card-body">
+                        <p class="card-text"><strong>Goals versus pledged amount</strong><br>There is very little corelation between goals of the projects and the pledged amount of backers. We can conclude that usually, you will get what you ask for.</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
-    <section>
-        <div class="card border-secondary mb-3">
-            <h2 class="card-header" id='state'>State</h2>
-            <div id='state_chart'></div>
-            <div class="card-body">
-                <p class="card-text"><strong>State of the projects</strong><br>More than 50% of all submitted projects in 2017 failed, with another 15% which were canceled or suspended. So, only around 35% of all submitted projects were succesful.</p>
-            </div>
-            <div id='backers_chart'></div>
-            <div class="card-body">
-                <p class="card-text"><strong>Amount of backers</strong><br>About 50% of project got none to 10 backers, and less than 5% of project got more than a thousand of backers. The most backers of all times- 2490 was received by a project on (something) by (someone).</p>
+        <div class='container-fluid'>
+            <div class='row'>
+                <div class="col-xs-12 col-sm-12 col-md-6">
+                    <div class="card border-secondary mb-3">
+                        <h2 class="card-header" id='state'>State</h2>
+                        <div id='state_chart'></div>
+                        <div class="card-body">
+                            <p class="card-text"><strong>State of the projects</strong><br>More than 50% of all submitted projects in 2017 failed, with another 15% which were canceled or suspended. So, only around 35% of all submitted projects were succesful.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6">
+                    <div class="card border-secondary mb-3">
+                        <h2 class="card-header" id='backers'>Backers</h2>
+                        <div id='backers_chart'></div>
+                        <div class="card-body">
+                            <p class="card-text"><strong>Amount of backers</strong><br>About 50% of project got none to 10 backers, and less than 5% of project got more than a thousand of backers. The most backers of all times- 2490 was received by a project on (something)
+                                by (someone).
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
