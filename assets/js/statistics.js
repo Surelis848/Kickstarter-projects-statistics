@@ -21,6 +21,9 @@ function makeCharts(error, projectData) {
     show_backers(ndx);
 
     dc.renderAll();
+    
+    var overlay = document.getElementById('overlay');
+    overlay.style.display = 'none';
 }
 
 /*------------------------------Categories--------------------------*/
@@ -51,7 +54,7 @@ function show_country(ndx) {
         .transitionDuration(500)
         .dimension(countryDim)
         .group(countryGroup)
-        .legend(dc.legend().x(220).y(20).itemHeight(15).gap(5));
+        .legend(dc.legend().x(20).y(20).itemHeight(15).gap(5));
 }
 
 function show_currency(ndx) {
@@ -64,7 +67,7 @@ function show_currency(ndx) {
         .transitionDuration(500)
         .dimension(currencyDim)
         .group(currencyGroup)
-        .legend(dc.legend().x(220).y(20).itemHeight(15).gap(5));
+        .legend(dc.legend().x(20).y(20).itemHeight(15).gap(5));
 }
 
 /*------------------------------Goals--------------------------*/
@@ -103,11 +106,41 @@ function show_state(ndx) {
         .transitionDuration(500)
         .dimension(stateDim)
         .group(stateGroup)
-        .legend(dc.legend().x(220).y(20).itemHeight(15).gap(5));
+        .legend(dc.legend().x(20).y(20).itemHeight(15).gap(5));
 }
 
 function show_backers(ndx) {
-   var backersDim = ndx.dimension(function(d) {
+    /*var backersDim = ndx.dimension(function(d) {
+        switch (d) {
+            case 'less than 11':
+                d.backers < 11;
+                text = '0-10';
+                break;
+            case 'less than 51':
+                d.backers < 51;
+                text = '11-50';
+                break;
+            case 'less than 101':
+                d.backers < 101;
+                text = '51-100';
+                break;
+            case 'less than 201':
+                d.backers < 201;
+                text = '101-200';
+                break;
+            case 'less than 501':
+                d.backers < 501;
+                text = '201-500';
+                break;
+            case 'less than 1001':
+                d.backers < 1001;
+                text = '501-1000';
+                break;
+            default:
+                text = '1001-2490';
+                
+    }});*/
+    var backersDim = ndx.dimension(function(d) {
         if (d.backers < 11)
             return '0-10';
         else if (d.backers < 51)
@@ -121,7 +154,7 @@ function show_backers(ndx) {
         else if (d.backers < 1001)
             return '501-1000';
         else
-            return '1001-2490';
+            return '1001-2490'
     });
 
     var backersGroup = backersDim.group();
@@ -132,5 +165,5 @@ function show_backers(ndx) {
         .transitionDuration(500)
         .dimension(backersDim)
         .group(backersGroup)
-        .legend(dc.legend().x(220).y(20).itemHeight(15).gap(5));
+        .legend(dc.legend().x(20).y(20).itemHeight(15).gap(5));
 }

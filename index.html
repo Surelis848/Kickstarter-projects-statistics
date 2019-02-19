@@ -21,6 +21,12 @@
 </head>
 
 <body>
+    <div id='overlay'>
+        <div class="lds-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
     <nav class='nav navbar navbar-dark bg-primary'>
         <div class="container-fluid">
             <a class="logo" href="index.html">Kickstarter projects</a>
@@ -58,7 +64,7 @@
         <div class='container-fluid'>
             <div class='row'>
                 <div class="col-xs-12 col-sm-12 col-md-6">
-                    <div class="card border-secondary mb-3">
+                    <div class="card pie-card border-secondary mb-3">
                         <h2 class="card-header" id='country'>Country of issue</h2>
                         <div id='country_chart'></div>
                         <div class="card-body">
@@ -67,7 +73,7 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-6">
-                    <div class="card border-secondary mb-3">
+                    <div class="card pie-card border-secondary mb-3">
                         <h2 class="card-header" id='currency'>Currency used</h2>
                         <div id='currency_chart'></div>
                         <div class="card-body">
@@ -91,7 +97,7 @@
         <div class='container-fluid'>
             <div class='row'>
                 <div class="col-xs-12 col-sm-12 col-md-6">
-                    <div class="card border-secondary mb-3">
+                    <div class="card pie-card border-secondary mb-3">
                         <h2 class="card-header" id='state'>State</h2>
                         <div id='state_chart'></div>
                         <div class="card-body">
@@ -100,7 +106,7 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-6">
-                    <div class="card border-secondary mb-3">
+                    <div class="card pie-card border-secondary mb-3">
                         <h2 class="card-header" id='backers'>Backers</h2>
                         <div id='backers_chart'></div>
                         <div class="card-body">
