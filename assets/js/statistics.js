@@ -1,5 +1,6 @@
+/*------------------------------Preparation--------------------------*/
 queue()
-    .defer(d3.csv, 'data/ks-projects.csv')
+    .defer(d3.csv, "data/ks-projects.csv")
     .await(makeCharts);
 
 function makeCharts(error, projectData) {
@@ -8,9 +9,9 @@ function makeCharts(error, projectData) {
 
     projectData.forEach(function(d) {
         d.launched = parseDate(d.launched);
-        d.goal = parseInt(d['goal']);
-        d.pledged = parseInt(d['pledged']);
-        d.backers = parseInt(d['backers']);
+        d.goal = parseInt(d["goal"]);
+        d.pledged = parseInt(d["pledged"]);
+        d.backers = parseInt(d["backers"]);
     });
 
     show_categories(ndx);
@@ -21,18 +22,18 @@ function makeCharts(error, projectData) {
     show_backers(ndx);
 
     dc.renderAll();
-    
-    var overlay = document.getElementById('overlay');
-    overlay.style.display = 'none';
+
+    var overlay = document.getElementById("overlay");
+    overlay.style.display = "none";
 }
 
 /*------------------------------Categories--------------------------*/
 
 function show_categories(ndx) {
-    var categoryDim = ndx.dimension(dc.pluck('main_category'));
+    var categoryDim = ndx.dimension(dc.pluck("main_category"));
     var categoryGroup = categoryDim.group();
 
-    dc.rowChart('#category_chart')
+    dc.rowChart("#category_chart")
         .width(768)
         .height(500)
         .dimension(categoryDim)
@@ -45,10 +46,10 @@ function show_categories(ndx) {
 /*------------------------------Country--------------------------*/
 
 function show_country(ndx) {
-    var countryDim = ndx.dimension(dc.pluck('country'));
+    var countryDim = ndx.dimension(dc.pluck("country"));
     var countryGroup = countryDim.group();
 
-    dc.pieChart('#country_chart')
+    dc.pieChart("#country_chart")
         .height(400)
         .radius(150)
         .transitionDuration(500)
@@ -58,10 +59,10 @@ function show_country(ndx) {
 }
 
 function show_currency(ndx) {
-    var currencyDim = ndx.dimension(dc.pluck('currency'));
+    var currencyDim = ndx.dimension(dc.pluck("currency"));
     var currencyGroup = currencyDim.group();
 
-    dc.pieChart('#currency_chart')
+    dc.pieChart("#currency_chart")
         .height(400)
         .radius(150)
         .transitionDuration(500)
@@ -73,21 +74,21 @@ function show_currency(ndx) {
 /*------------------------------Goals--------------------------*/
 
 function show_goal_pledged(ndx) {
-    var dateDim = ndx.dimension(dc.pluck('launched'));
+    var dateDim = ndx.dimension(dc.pluck("launched"));
     var minDate = dateDim.bottom(1)[0].launched;
     var maxDate = dateDim.top(1)[0].launched;
 
-    var goalsByMonth = dateDim.group().reduceSum(dc.pluck('goal'));
-    var pledgesByMonth = dateDim.group().reduceSum(dc.pluck('pledged'));
+    var goalsByMonth = dateDim.group().reduceSum(dc.pluck("goal"));
+    var pledgesByMonth = dateDim.group().reduceSum(dc.pluck("pledged"));
 
-    dc.lineChart('#goals_pledged_chart')
+    dc.lineChart("#goals_pledged_chart")
         .width(900)
         .height(500)
         .margins({ top: 20, right: 40, bottom: 30, left: 80 })
         .dimension(dateDim)
         .legend(dc.legend().x(90).y(20).itemHeight(13).gap(5))
-        .group(goalsByMonth, 'Goals')
-        .stack(pledgesByMonth, 'Pledges')
+        .group(goalsByMonth, "Goals")
+        .stack(pledgesByMonth, "Pledges")
         .transitionDuration(500)
         .x(d3.time.scale().domain([minDate, maxDate]))
         .xAxisLabel("Month")
@@ -97,10 +98,10 @@ function show_goal_pledged(ndx) {
 /*------------------------------State--------------------------*/
 
 function show_state(ndx) {
-    var stateDim = ndx.dimension(dc.pluck('state'));
+    var stateDim = ndx.dimension(dc.pluck("state"));
     var stateGroup = stateDim.group();
 
-    dc.pieChart('#state_chart')
+    dc.pieChart("#state_chart")
         .height(400)
         .radius(150)
         .transitionDuration(500)
@@ -111,25 +112,25 @@ function show_state(ndx) {
 
 function show_backers(ndx) {
     var backersDim = ndx.dimension(function(d) {
-        if (d.backers < 11)
-            return '0-10';
-        else if (d.backers < 51)
-            return '11-50';
-        else if (d.backers < 101)
-            return '51-100';
-        else if (d.backers < 201)
-            return '101-200';
-        else if (d.backers < 501)
-            return '201-500';
-        else if (d.backers < 1001)
-            return '501-1000';
-        else
-            return '1001-2490'
-    });
+        if (d.backers < 11) {
+            return "0-10";
+        } else if (d.backers < 51) {
+            return "11-50";
+        } else if (d.backers < 101) {
+            return "51-100";
+        } else if (d.backers < 201) {
+            return "101-200";
+        } else if (d.backers < 501) {
+            return "201-500";
+        } else if (d.backers < 1001) {
+            return "501-1000";
+        } else {
+            return "1001-2490";
+    }});
 
     var backersGroup = backersDim.group();
 
-    dc.pieChart('#backers_chart')
+    dc.pieChart("#backers_chart")
         .height(400)
         .radius(150)
         .transitionDuration(500)
