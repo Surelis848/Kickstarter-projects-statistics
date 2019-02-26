@@ -5,10 +5,6 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-.pie-card {
-  min-height: 600px;
-}
-
 .chart {
   text-align: center;
 }
@@ -89,5 +85,11 @@ body {
   section {
     margin-left: 100px;
     margin-right: 100px;
+  }
+}
+
+@media (min-width: 992px) {
+  .pie-card {
+    min-height: 600px;
   }
 }
