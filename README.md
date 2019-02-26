@@ -48,7 +48,7 @@ Although, the design and some features changed over the development process.
 
 # Testing
 
-<strong><i>Manual testing</i></strong><br>
+<h2>Manual testing</h2>
 
 <strong>Validating:</strong><br>
 <ul>
