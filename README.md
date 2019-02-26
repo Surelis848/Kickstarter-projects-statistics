@@ -23,6 +23,7 @@ Although, the design and some features changed over the development process.
 # Features
 
 <ul>
+<li><strong>Reset All button</strong><br>A button that renderes all of the graphs reseting them.</li>
 <li><strong>Categories row chart</strong><br>Shows main categories in Kickstarter from the highest popularity to the lowest.</li>
 <li><strong>Country of issue and Currency used pie charts</strong><br>Shows the most popular countries and currencies used.</li>
 <li><strong>Goals/pledged stacked line chart</strong><br>Shows the correlation between made goals and pledged amount of money from backers.</li>
@@ -31,7 +32,7 @@ Although, the design and some features changed over the development process.
 
 # Features Left to Implement
 <ul>
-<li><strong>Time frame pie chart</strong><br>A pie chart for most periods of time to have your project for;</li>
+<li><strong>Time frame pie chart</strong><br>A pie chart for most popular periods of time to have your project for;</li>
 </ul>
 
 # Technologies Used
@@ -40,35 +41,52 @@ Although, the design and some features changed over the development process.
 <li><a href='https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5'>HTML5</a>- used to build the main structure and text of the page;</li>
 <li><a href='https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3'>CSS3</a>- used for the styling of the page;</li>
 <li><a href='https://www.javascript.com/'>JavaScript</a>- used for building the dashboard with the help of dc.js;</li>
-<li><a href='https://bootswatch.com/lux/'>Bootswatch Lux</a>- used as a theme for the page, also card to put graphs in;</li>
+<li><a href='https://getbootstrap.com/docs/3.3/'>Bootstrap 3.3.7</a>- used for styling and layout of the page.</li>
+<li><a href='https://bootswatch.com/lux/'>Bootswatch Lux</a>- used as a theme for the page, also card boxes to put graphs in;</li>
 <li><a href='https://fonts.google.com/'>Google Fonts</a>- font 'Poppins' used as the main font of the page;</li>
 </ul>
 
 # Testing
-As I was doing a dashboard and using dc.js libraries for it, I didn't make automated tests. However, I tested it all manually.
 
 <strong>Manual testing</strong><br>
 
 <u>Validating:</u><br>
 <ul>
-<li><a href='https://validator.w3.org/nu/#textarea'>HTML and CSS Validator</a></li>
+<li>HTML and CSS validated using <a href='https://validator.w3.org/nu/#textarea'>Nu Checker</a>;</li>
+<li>JavaScript code validated with <a href='https://www.jslint.com/'>JS Lint</a>;</li>
 </ul>
-Contact form:
-Go to the "Contact Us" page
-Try to submit the empty form and verify that an error message about the required fields appears
-Try to submit the form with an invalid email address and verify that a relevant error message appears
-Try to submit the form with all inputs valid and verify that a success message appears.
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
 
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
+<u>Site responsiveness was tested on these browsers:</u><br>
+<ul>
+<li>Google Chrome</li>
+<li>Internet Explorer</li>
+<li>Mozilla Firefox</li>
+<li>Opera Browser</li>
+<li>Microsoft Edge</li>
+<li>Safari</li>
+</ul>
+
+<u>Bugs:</u><br>
+<ul>
+<li>When the graphs are viewed on a smaller device, the graphs shrink and the x axis and y axis in the line chart as well as the row chart starts to be unreadable without zooming the screen in.</li>
+</ul>
+
+<u>Other manual testing:</u><br>
+<ul>
+<li>If the 'Reset All' button is clicked all of the charts will be rendered again;</li>
+<li>When selecting a specific category, country, state, etc. other charts are rendered according to the users choice.</li>
+</ul>
 
 # Deployment
-The website was published using <a href='https://surelis848.github.io/Kickstarter-projects-statistics/'>GitHub pages</a>
+This project does not require any local deployment.<br><br>
+The website was published using <a href='https://surelis848.github.io/Kickstarter-projects-statistics/'>GitHub pages</a>.<br><br>
+There are no differences between the deployed version and the development version.
 
 # Credits
-Content
-The text for section Y was copied from the Wikipedia article Z
-Media
-The photos used in this site were obtained from ...
-Acknowledgements
-I received inspiration for this project from X
+<u>Content</u><br>
+The text for the first paragraph was copied from <a href='https://en.wikipedia.org/wiki/Kickstarter'>this</a> Wikipedia article.<br>
+<u>Data</u><br>
+Statistics for the dashboard originated from <a href='https://www.kaggle.com/kemical/kickstarter-projects#ks-projects-201801.csv'>Kaggle</a>.<br>
+Only 2017 year statistic was used and some of the data was made shorter.<br>
+<u>Spinner</u><br>
+The spinner was copied from <a href='https://loading.io/css/'>loading.io</a>.<br>
