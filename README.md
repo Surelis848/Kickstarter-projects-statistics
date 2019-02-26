@@ -48,15 +48,15 @@ Although, the design and some features changed over the development process.
 
 # Testing
 
-<strong>Manual testing</strong><br>
+<strong><i>Manual testing</i></strong><br>
 
-<u>Validating:</u><br>
+<strong>Validating:</strong><br>
 <ul>
 <li>HTML and CSS validated using <a href='https://validator.w3.org/nu/#textarea'>Nu Checker</a>;</li>
 <li>JavaScript code validated with <a href='https://www.jslint.com/'>JS Lint</a>;</li>
 </ul>
 
-<u>Site responsiveness was tested on these browsers:</u><br>
+<strong>Site responsiveness was tested on these browsers:</strong><br>
 <ul>
 <li>Google Chrome</li>
 <li>Internet Explorer</li>
@@ -66,12 +66,12 @@ Although, the design and some features changed over the development process.
 <li>Safari</li>
 </ul>
 
-<u>Bugs:</u><br>
+<strong>Bugs:</strong><br>
 <ul>
 <li>When the graphs are viewed on a smaller device, the graphs shrink and the x axis and y axis in the line chart as well as the row chart starts to be unreadable without zooming the screen in.</li>
 </ul>
 
-<u>Other manual testing:</u><br>
+<strong>Other manual testing:</strong><br>
 <ul>
 <li>If the 'Reset All' button is clicked all of the charts will be rendered again;</li>
 <li>When selecting a specific category, country, state, etc. other charts are rendered according to the users choice.</li>
@@ -83,10 +83,10 @@ The website was published using <a href='https://surelis848.github.io/Kickstarte
 There are no differences between the deployed version and the development version.
 
 # Credits
-<u>Content</u><br>
+<strong>Content</strong><br>
 The text for the first paragraph was copied from <a href='https://en.wikipedia.org/wiki/Kickstarter'>this</a> Wikipedia article.<br>
-<u>Data</u><br>
+<strong>Data</strong><br>
 Statistics for the dashboard originated from <a href='https://www.kaggle.com/kemical/kickstarter-projects#ks-projects-201801.csv'>Kaggle</a>.<br>
 Only 2017 year statistic was used and some of the data was made shorter.<br>
-<u>Spinner</u><br>
+<strong>Spinner</strong><br>
 The spinner was copied from <a href='https://loading.io/css/'>loading.io</a>.<br>
