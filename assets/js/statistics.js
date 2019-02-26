@@ -86,8 +86,8 @@ function show_goal_pledged(ndx) {
         .margins({ top: 20, right: 40, bottom: 30, left: 80 })
         .dimension(dateDim)
         .legend(dc.legend().x(90).y(20).itemHeight(13).gap(5))
-        .group(goalsByMonth)
-        .stack(pledgesByMonth)
+        .group(goalsByMonth, 'Goals')
+        .stack(pledgesByMonth, 'Pledges')
         .transitionDuration(500)
         .x(d3.time.scale().domain([minDate, maxDate]))
         .xAxisLabel("Month")
@@ -110,36 +110,6 @@ function show_state(ndx) {
 }
 
 function show_backers(ndx) {
-    /*var backersDim = ndx.dimension(function(d) {
-        switch (d) {
-            case 'less than 11':
-                d.backers < 11;
-                text = '0-10';
-                break;
-            case 'less than 51':
-                d.backers < 51;
-                text = '11-50';
-                break;
-            case 'less than 101':
-                d.backers < 101;
-                text = '51-100';
-                break;
-            case 'less than 201':
-                d.backers < 201;
-                text = '101-200';
-                break;
-            case 'less than 501':
-                d.backers < 501;
-                text = '201-500';
-                break;
-            case 'less than 1001':
-                d.backers < 1001;
-                text = '501-1000';
-                break;
-            default:
-                text = '1001-2490';
-                
-    }});*/
     var backersDim = ndx.dimension(function(d) {
         if (d.backers < 11)
             return '0-10';
