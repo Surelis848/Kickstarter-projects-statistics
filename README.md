@@ -3,7 +3,7 @@ This is an Interactive Frontend Development project. It is featuring a data dash
 Presented are such things as categories of projects, most popular countries and currencies,
 goal vs. pledged amount of money, state of the projects and number of backers. <br>
 This website was made as a project for Code Institute.<br>
-To view the live site press <a href='#'>HERE</a>
+To view the live site press <a href='https://surelis848.github.io/Kickstarter-projects-statistics/'>HERE</a>
 # UX
 This dashboard was made mostly for people thinking about presenting a project on Kickstarter or already have an existing one.<br>
 It's an intro to Kickstarter showing data of submitted projects in 2017.<br>
